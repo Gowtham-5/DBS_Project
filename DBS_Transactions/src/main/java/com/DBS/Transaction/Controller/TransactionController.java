@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.DBS.Transaction.Model.Customer;
 import com.DBS.Transaction.Model.Payment_Transfertypes;
 import com.DBS.Transaction.Model.Transaction;
+import com.DBS.Transaction.Repository.Customer_Repository;
 import com.DBS.Transaction.Repository.TransactionRepository;
 import com.DBS.Transaction.Service.TransactionService;
 
@@ -26,6 +28,8 @@ public class TransactionController {
 	private TransactionService transactionService;
 	@Autowired
 	private TransactionRepository transactionRepository;
+	@Autowired
+	private Customer_Repository customer_Repository;
 
 	@GetMapping("/findall")
 	public List<Transaction> findallTransaction() {
@@ -34,7 +38,15 @@ public class TransactionController {
 
 	@PostMapping("/add")
 	private Transaction addTransaction(@RequestBody Transaction transaction) {
+		
 		return transactionService.addTransaction(transaction);
+		
+	}
+	@PostMapping("/makeTransaction")
+	public String makeTransaction(@RequestBody Transaction transaction) {
+		   transactionService.makeTransaction(transaction);
+		  return "Transaction Successfull";
+		
 	}
 
 	@GetMapping("/findbyid/{transactionid}")
