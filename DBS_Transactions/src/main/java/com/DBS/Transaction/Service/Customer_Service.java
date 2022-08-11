@@ -34,19 +34,7 @@ public class Customer_Service {
             return new Customer();
         }
     }
-//    public Customer updateAmount(@PathVariable Integer customerid, @PathVariable Double amount) {
-//    	Customer customer = customer_Repository.findById(customerid).get();
-//    	Double deductAMount= customer.getClearbalance()-amount;
-//    	customer.setClearbalance(deductAMount);
-//    	return customer_Repository.save(customer);
-//  	
-//    	public Customer updateBalance(  @RequestBody Customer customer1) {
-//    	    Double amount=customer1.getClearbalance();
-//    	    Integer customerid1= customer1.getCustomerid();
-//    	    Customer customer = customer_Repository.findById(customerid1).get();
-//    		Double deductAMount= customer.getClearbalance()-amount;
-//    		customer.setClearbalance(deductAMount);
-//    	    	return customer_Repository.save(customer);
-//    	
+//    public Optional<Customer> findcustomerbyname(String accountholdername) {
+//    	return customer_Repository.findByAccountholdername(accountholdername);
 //    }
 }

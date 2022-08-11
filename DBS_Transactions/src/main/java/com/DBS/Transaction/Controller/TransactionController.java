@@ -1,7 +1,10 @@
 package com.DBS.Transaction.Controller;
 
+import java.io.IOException;
+import java.security.PublicKey;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,16 +39,16 @@ public class TransactionController {
 		return transactionService.findallTransactions();
 	}
 
-	@PostMapping("/add")
-	private Transaction addTransaction(@RequestBody Transaction transaction) {
-		
-		return transactionService.addTransaction(transaction);
-		
-	}
+//	@PostMapping("/add")
+//	private Transaction addTransaction(@RequestBody Transaction transaction) {
+//		
+//		return transactionService.addTransaction(transaction);
+//		
+//	}
 	@PostMapping("/makeTransaction")
-	public String makeTransaction(@RequestBody Transaction transaction) {
-		   transactionService.makeTransaction(transaction);
-		  return "Transaction Successfull";
+	public String makeTransaction(@RequestBody Transaction transaction) throws IOException {
+		   return transactionService.makeTransaction(transaction);
+		  //return "Transaction Successfull";
 		
 	}
 
@@ -63,5 +66,11 @@ public class TransactionController {
 	public Transaction updateTransaction(@RequestBody Transaction transaction) {
 		return transactionRepository.save(transaction);
 }
+//	@PostMapping("/check")
+//	public Boolean checkblocklist(@RequestBody String receiveraccountholdername) throws IOException {
+//		return transactionService.checkReceiverName(receiveraccountholdername);
+//		
+//	}
+	
 	
 }

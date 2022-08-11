@@ -45,10 +45,9 @@ public class Customer_Controller {
     public Customer updateCustomer(@RequestBody Customer customer) {
     	return customer_Repository.save(customer);
     }
-//    @PutMapping("/updateamount/{customerid}/{customer1}")
-//    public String updateBalance( Integer customerid,  Double amount) {
-//    	customer_Service.updateAmount(customerid, amount);
-//    	return "Amount updated";
+//    @GetMapping("/findbyname")
+//    public Optional<Customer> findbyname(@RequestBody String accountholdername) {
+//    	return customer_Service.findcustomerbyname(accountholdername);
 //    }
-
-}
+//
+    }
